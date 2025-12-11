@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Certifications — Tagore Bharadwaj</title>
+  <meta name="description" content="Certifications and course certificates by Tagore Bharadwaj">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Page-specific styles (keeps same palette) */
+    .cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:18px; }
+    .cert-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
+    .cert-card h3{ margin:0 0 6px 0; color: var(--accent); }
+    .cert-meta{ color: var(--muted); font-size:0.95rem; margin-bottom:10px; }
+    .cert-actions{ display:flex; gap:10px; align-items:center; }
+    .btn.view { background: transparent; color: var(--accent-2); border: 1px solid rgba(255,255,255,0.05); padding:8px 12px; border-radius:8px; text-decoration:none; cursor:pointer; }
+    .cert-thumb{ width:100%; height:150px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,0.02); margin-bottom:10px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:600; }
+    /* Modal */
+    .cert-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.85); z-index:9999; padding:24px; }
+    .cert-modal .modal-inner { width:90%; max-width:1100px; height:90%; background: #fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+    .modal-toolbar { display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background: #061121; color:#fff; }
+    .modal-toolbar .meta { font-weight:600; color:var(--accent-2); }
+    .modal-body { flex:1; background:#fff; display:flex; align-items:center; justify-content:center; }
+    .modal-body iframe, .modal-body embed, .modal-body img { width:100%; height:100%; border:0; }
+    .modal-close { background:transparent; border:0; color:#fff; font-size:1.1rem; cursor:pointer; padding:6px 10px; border-radius:6px; }
+    @media (max-width:880px){
+      .cert-thumb{ height:120px }
+      .cert-modal .modal-inner { height:92%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">Tagore Bharadwaj ❤️</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="certifications.html" aria-current="page">Certifications</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>Certifications</h1>
+      <p class="muted">Click “View” to preview each certificate. If the embedded preview doesn't show, use "Open file" to open the PDF in a new tab.</p>
+    </header>
+
+    <section class="cert-grid" id="cert-grid">
+
+      <!-- MERN -->
+      <article class="cert-card" data-src="assets/certs/MERN-CERT.pdf" data-title="MERN Full Stack Certification Training Course">
+        <div class="cert-thumb">MERN Full Stack</div>
+        <h3>MERN Full Stack Certification Training Course</h3>
+        <div class="cert-meta">Issued by: Six Phrase / Veranda Enterprise</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/MERN-CERT.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- be10x AI Tools -->
+      <article class="cert-card" data-src="assets/certs/AI-TOOLS-be10x.pdf" data-title="AI Tools & ChatGPT Workshop">
+        <div class="cert-thumb">AI Tools • be10x</div>
+        <h3>AI Tools & ChatGPT Workshop</h3>
+        <div class="cert-meta">Issued: Aug 17, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/AI-TOOLS-be10x.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- DBMS Part 2 -->
+      <article class="cert-card" data-src="assets/certs/DBMS-Part2.pdf" data-title="Database Management System — Part 2">
+        <div class="cert-thumb">DBMS — Part 2</div>
+        <h3>Database Management System — Part 2</h3>
+        <div class="cert-meta">Issued: June 26, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/DBMS-Part2.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- DBMS Part 1 -->
+      <article class="cert-card" data-src="assets/certs/DBMS-Part1.pdf" data-title="Database Management System — Part 1">
+        <div class="cert-thumb">DBMS — Part 1</div>
+        <h3>Database Management System — Part 1</h3>
+        <div class="cert-meta">Issued: June 26, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/DBMS-Part1.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- DBMS Science Graduates -->
+      <article class="cert-card" data-src="assets/certs/DBMS-Science-Graduates.pdf" data-title="DBMS — Science Graduates">
+        <div class="cert-thumb">DBMS • Science</div>
+        <h3>Database Management System — Science Graduates</h3>
+        <div class="cert-meta">Issued: Aug 1, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/DBMS-Science-Graduates.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- NoSQL -->
+      <article class="cert-card" data-src="assets/certs/NoSQL.pdf" data-title="Introduction to NoSQL databases">
+        <div class="cert-thumb">NoSQL</div>
+        <h3>Introduction to NoSQL Databases</h3>
+        <div class="cert-meta">Issued: June 27, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/NoSQL.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- Programming Java -->
+      <article class="cert-card" data-src="assets/certs/Programming-Java.pdf" data-title="Programming using Java">
+        <div class="cert-thumb">Java</div>
+        <h3>Programming Using Java</h3>
+        <div class="cert-meta">Issued: June 27, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/Programming-Java.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+      <!-- Software Engineering -->
+      <article class="cert-card" data-src="assets/certs/Software-Engineering-Agile.pdf" data-title="Software Engineering & Agile software development">
+        <div class="cert-thumb">Software Engg</div>
+        <h3>Software Engineering & Agile Software Development</h3>
+        <div class="cert-meta">Issued: June 27, 2025</div>
+        <div class="cert-actions">
+          <button class="btn view" data-action="view">View</button>
+          <a class="btn" href="assets/certs/Software-Engineering-Agile.pdf" target="_blank" rel="noopener">Open file</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Modal viewer -->
+  <div id="cert-modal" class="cert-modal" aria-hidden="true" role="dialog" aria-labelledby="cert-title">
+    <div class="modal-inner" role="document">
+      <div class="modal-toolbar">
+        <div class="meta" id="cert-title">Certificate</div>
+        <div>
+          <button class="modal-close" id="modal-open-new" title="Open in new tab">Open in new tab</button>
+          <button class="modal-close" id="modal-close" aria-label="Close viewer">✕</button>
+        </div>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- viewer replaced dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© Tagore Bharadwaj </p>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const modal = document.getElementById('cert-modal');
+    const modalBody = document.getElementById('modal-body');
+    const modalTitle = document.getElementById('cert-title');
+    const modalClose = document.getElementById('modal-close');
+    const modalOpenNew = document.getElementById('modal-open-new');
+    let currentSrc = '';
+
+    // open modal and show file (PDF or image)
+    function openViewer(src, title) {
+      currentSrc = src;
+      modalTitle.innerText = title || 'Certificate';
+      modalBody.innerHTML = '';
+      const ext = src.split('.').pop().toLowerCase();
+      // for PDFs embed with <embed>; iframe sometimes blocked on file://
+      if (ext === 'pdf') {
+        const embed = document.createElement('embed');
+        embed.type = 'application/pdf';
+        embed.src = src;
+        embed.setAttribute('aria-label', title || 'Certificate viewer');
+        modalBody.appendChild(embed);
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = title || 'Certificate image';
+        modalBody.appendChild(img);
+      }
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalOpenNew.onclick = () => window.open(currentSrc, '_blank', 'noopener');
+    }
+
+    function closeViewer() {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      modalBody.innerHTML = '';
+      document.body.style.overflow = '';
+      currentSrc = '';
+    }
+
+    // wire view buttons
+    document.querySelectorAll('.cert-card').forEach(card => {
+      const btn = card.querySelector('button.view');
+      btn?.addEventListener('click', () => {
+        const src = card.dataset.src;
+        const title = card.dataset.title || card.querySelector('h3')?.innerText;
+        openViewer(src, title);
+      });
+    });
+
+    modalClose.addEventListener('click', closeViewer);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeViewer();
+    });
+    document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') closeViewer(); });
+  })();
+  </script>
+</body>
+</html>
