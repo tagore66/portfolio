@@ -4,12 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('nav-links');
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-      const open = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!open));
-      navLinks.style.display = open ? 'none' : 'flex';
+      const isOpen = navLinks.classList.contains('active');
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navLinks.classList.toggle('active');
+      navToggle.innerHTML = isOpen ? '☰' : '✕';
     });
-    // init mobile hidden
-    if (window.innerWidth <= 880) navLinks.style.display = 'none';
+    // close menu when link clicked (for mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.innerHTML = '☰';
+      });
+    });
   }
 
   // smooth internal link scrolling
@@ -27,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // resume link feedback
-  document.querySelectorAll('a[href$="MYRESUME.pdf"], a[href*="MYRESUME.pdf"]').forEach(link => {
+  // resume link feedback (matching RESUME.pdf)
+  document.querySelectorAll('a[href$="RESUME.pdf"], a[href*="RESUME.pdf"]').forEach(link => {
     link.addEventListener('click', () => {
       const original = link.innerText;
       link.innerText = 'Preparing download...';
-      setTimeout(()=> link.innerText = original, 900);
-      console.log('Resume clicked:', link.href);
+      setTimeout(()=> link.innerText = original, 1500);
     });
   });
 

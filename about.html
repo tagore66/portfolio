@@ -1,21 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Tagore Bharadwaj</title>
+  <title>Tagore Bharadwaj | about</title>
   <meta name="description" content="About Tagore Bharadwaj — education, objective and experience">
   <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
-  <nav class="nav">
-    <a class="brand" href="index.html">Tagore Bharadwaj </a>
-    <div class="nav-links">
+  <nav class="nav" id="site-nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">Tagore Bharadwaj Atreyapurapu</a>
+    <button id="nav-toggle" aria-expanded="false" aria-controls="nav-links" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div id="nav-links" class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html" aria-current="page">About</a>
+      <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
-      <a href="contact.html">Contact</a>
       <a href="certifications.html">Certifications</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
@@ -28,27 +32,56 @@
     <section class="card-panel">
       <h2>Education</h2>
       <ul>
-        <li><strong>VIT-AP University</strong> — B.Tech (CSE Core) • CGPA: 9.09</li>
-        <li><strong>Tirumala Junior College</strong> — Intermediate (MPC) • 97.8%</li>
-        <li><strong>Sri Chaitanya Techno School</strong> — SSC • 100%</li>
+        <li style="margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong>VIT-AP University, Amaravati</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">2023-Ongoing</span>
+          </div>
+          B.Tech (CSE Core) | 3rd Year | CGPA: 9.13
+        </li>
+        <li style="margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong>Tirumala Junior College, Rajahmundry</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">2021-2023</span>
+          </div>
+          Intermediate (MPC) | 97.8%
+        </li>
+        <li>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong>Sri Chaitanya Techno School, Rajahmundry</strong>
+            <span style="color: var(--muted); font-size: 0.9rem;">2020-2021</span>
+          </div>
+          Secondary School of Certificate (10th Class) | 100%
+        </li>
       </ul>
     </section>
 
     <section class="card-panel">
       <h2>Objective</h2>
-      <p>Computer Science and Engineering student (CSE Core, 9.09 CGPA) at VIT-AP University, 
-currently in 3rd year. Passionate about software development, system design, and problem
-solving, with hands-on experience in React, Next.js, JavaScript, and REST APIs. Enthusiastic 
-about building scalable applications, exploring new technologies, and contributing to 
-impactful projects through internships and collaborative opportunities</p>
+      <p>Computer Science and Engineering student (CSE Core, 9.13 CGPA) at VIT-AP University,
+        currently in 3rd year. Passionate about software development, system design, and problem-solving, 
+        with hands-on experience in React, Next.js, JavaScript, and REST APIs. Enthusiastic
+        about building scalable applications, exploring new technologies, and contributing to
+        impactful projects through internships and collaborative opportunities.</p>
+    </section>
+
+    <section class="card-panel">
+      <h2>Internships</h2>
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+          <h3 style="margin: 0; color: var(--accent-purple); font-size: 1.15rem;">Web Development Intern — SIX PHRASE</h3>
+          <span style="color: var(--muted); font-size: 0.9rem; font-weight: 500;">May 2025-July 2025</span>
+        </div>
+        <p style="margin-top: 12px; line-height: 1.6;">Developed a full-stack X-clone featuring secure login and personalized dashboards. Designed workout logging, progress monitoring, and goal management functionalities using a MERN stack with a MongoDB database and responsive UI.</p>
+      </div>
     </section>
 
     <section class="card-panel">
       <h2>Experience & Projects</h2>
       <ul>
-        <li>AI-Powered Women Safety & Emergency Response System — hardware</li>
-        <li>What Should I Watch? — recommendation web app</li>
-        <li>Smart Fan Controller using fuzzy logic</li>
+        <li>AI-Powered Women Safety System — physical and academic project</li>
+        <li>Email Scrapper — web app to read emails all together, using Redis for fast data retrieval</li>
+        <li>Aqua Smart — smart water management system</li>
       </ul>
     </section>
   </main>
@@ -61,4 +94,5 @@ impactful projects through internships and collaborative opportunities</p>
 
   <script src="assets/script.js"></script>
 </body>
+
 </html>

@@ -3,137 +3,269 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Certifications — Tagore Bharadwaj</title>
+  <title>Tagore Bharadwaj | Full-Stack Developer</title>
   <meta name="description" content="Certifications and course certificates by Tagore Bharadwaj">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Page-specific styles (keeps same palette) */
-    .cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:18px; }
-    .cert-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
-    .cert-card h3{ margin:0 0 6px 0; color: var(--accent); }
-    .cert-meta{ color: var(--muted); font-size:0.95rem; margin-bottom:10px; }
-    .cert-actions{ display:flex; gap:10px; align-items:center; }
-    .btn.view { background: transparent; color: var(--accent-2); border: 1px solid rgba(255,255,255,0.05); padding:8px 12px; border-radius:8px; text-decoration:none; cursor:pointer; }
-    .cert-thumb{ width:100%; height:150px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,0.02); margin-bottom:10px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:600; }
+    /* Stack layout for certifications */
+    .cert-stack { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 24px; 
+      margin-top: 32px; 
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cert-card { 
+      background: var(--glass-bg); 
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 24px; 
+      border-radius: var(--radius); 
+      border: 1px solid var(--glass-border); 
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cert-card:hover {
+      transform: translateX(8px);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cert-thumb { 
+      width: 180px; 
+      height: 120px; 
+      flex-shrink: 0;
+      object-fit: cover; 
+      border-radius: 12px; 
+      border: 1px solid rgba(255,255,255,0.05); 
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: var(--text); 
+      font-weight: 600; 
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+    
+    .cert-content {
+      flex: 1;
+    }
+    
+    .cert-card h3 { 
+      margin: 0 0 8px 0; 
+      color: var(--accent-cyan); 
+      font-size: 1.4rem;
+    }
+    
+    .cert-meta { 
+      color: var(--muted); 
+      font-size: 1rem; 
+      margin-bottom: 16px; 
+    }
+    
+    .cert-actions { 
+      display: flex; 
+      gap: 12px; 
+      align-items: center; 
+    }
+    
+    .btn.view { 
+      background: transparent; 
+      color: var(--accent-purple); 
+      border: 1px solid rgba(192, 132, 252, 0.4); 
+      padding: 8px 16px; 
+      border-radius: 8px; 
+      font-weight: 500;
+      cursor: pointer; 
+      transition: all 0.2s ease;
+    }
+    
+    .btn.view:hover {
+      background: rgba(192, 132, 252, 0.1);
+      border-color: var(--accent-purple);
+    }
+    
+    .btn.outline {
+      background: transparent; 
+      color: var(--text); 
+      border: 1px solid var(--glass-border); 
+      padding: 8px 16px; 
+      border-radius: 8px; 
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .btn.outline:hover {
+      background: var(--glass-hover);
+    }
+
     /* Modal */
-    .cert-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.85); z-index:9999; padding:24px; }
-    .cert-modal .modal-inner { width:90%; max-width:1100px; height:90%; background: #fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
-    .modal-toolbar { display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background: #061121; color:#fff; }
-    .modal-toolbar .meta { font-weight:600; color:var(--accent-2); }
+    .cert-modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(3,7,18,0.9); backdrop-filter: blur(8px); z-index:9999; padding:24px; }
+    .cert-modal .modal-inner { width:95%; max-width:1200px; height:95%; background: var(--bg-color); border-radius:16px; border: 1px solid var(--glass-border); overflow:hidden; display:flex; flex-direction:column; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+    .modal-toolbar { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--glass-border); }
+    .modal-toolbar .meta { font-weight:600; color:var(--accent-cyan); font-size: 1.1rem; }
     .modal-body { flex:1; background:#fff; display:flex; align-items:center; justify-content:center; }
     .modal-body iframe, .modal-body embed, .modal-body img { width:100%; height:100%; border:0; }
-    .modal-close { background:transparent; border:0; color:#fff; font-size:1.1rem; cursor:pointer; padding:6px 10px; border-radius:6px; }
-    @media (max-width:880px){
-      .cert-thumb{ height:120px }
-      .cert-modal .modal-inner { height:92%; }
+    .modal-close { background:transparent; border:0; color:var(--text); font-size:1.1rem; cursor:pointer; padding:8px 12px; border-radius:8px; transition: all 0.2s ease; }
+    .modal-close:hover { background: var(--glass-hover); color: var(--accent-purple); }
+    
+    @media (max-width:768px){
+      .cert-card { flex-direction: column; text-align: center; gap: 16px; }
+      .cert-thumb { width: 100%; height: 160px; }
+      .cert-actions { justify-content: center; }
+      .cert-modal .modal-inner { height:100%; width: 100%; border-radius: 0; }
+      .cert-modal { padding: 0; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Main navigation">
-    <a class="brand" href="index.html">Tagore Bharadwaj ❤️</a>
-    <div class="nav-links">
+  <nav class="nav" id="site-nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">Tagore Bharadwaj Atreyapurapu</a>
+    <button id="nav-toggle" aria-expanded="false" aria-controls="nav-links" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div id="nav-links" class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
-      <a href="contact.html">Contact</a>
       <a href="certifications.html" aria-current="page">Certifications</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
   <main class="container">
     <header class="page-header">
-      <h1>Certifications</h1>
-      <p class="muted">Click “View” to preview each certificate. If the embedded preview doesn't show, use "Open file" to open the PDF in a new tab.</p>
+      <h1>My Certifications</h1>
+      <p class="lead" style="margin: 0 auto;">Click “View” to preview each certificate or "Open file" to view the PDF directly.</p>
     </header>
 
-    <section class="cert-grid" id="cert-grid">
+    <section class="cert-stack" id="cert-grid">
+
+      <!-- OCI eCertificate -->
+      <article class="cert-card" data-src="assets/certs/OCI eCertificate.pdf" data-title="Oracle Cloud Infrastructure Certification">
+        <div class="cert-thumb">OCI Certified</div>
+        <div class="cert-content">
+          <h3>Oracle Cloud Infrastructure Certification</h3>
+          <div class="cert-meta">Issued by: Oracle</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/OCI eCertificate.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
+        </div>
+      </article>
 
       <!-- MERN -->
       <article class="cert-card" data-src="assets/certs/MERN-CERT.pdf" data-title="MERN Full Stack Certification Training Course">
         <div class="cert-thumb">MERN Full Stack</div>
-        <h3>MERN Full Stack Certification Training Course</h3>
-        <div class="cert-meta">Issued by: Six Phrase / Veranda Enterprise</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/MERN-CERT.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>MERN Full Stack Certification Training Course</h3>
+          <div class="cert-meta">Issued by: Six Phrase / Veranda Enterprise</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/MERN-CERT.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
       <!-- be10x AI Tools -->
       <article class="cert-card" data-src="assets/certs/AI-TOOLS-be10x.pdf" data-title="AI Tools & ChatGPT Workshop">
         <div class="cert-thumb">AI Tools • be10x</div>
-        <h3>AI Tools & ChatGPT Workshop</h3>
-        <div class="cert-meta">Issued: Aug 17, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/AI-TOOLS-be10x.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>AI Tools & ChatGPT Workshop</h3>
+          <div class="cert-meta">Issued: Aug 17, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/AI-TOOLS-be10x.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
+        </div>
+      </article>
+
+      
+
+      <!-- DBMS Part 1 -->
+      <article class="cert-card" data-src="assets/certs/DBMS-Part1.pdf" data-title="Database Management System — Part 1">
+        <div class="cert-thumb">DBMS — Part 1</div>
+        <div class="cert-content">
+          <h3>Database Management System — Part 1</h3>
+          <div class="cert-meta">Issued: June 26, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/DBMS-Part1.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
       <!-- DBMS Part 2 -->
       <article class="cert-card" data-src="assets/certs/DBMS-Part2.pdf" data-title="Database Management System — Part 2">
         <div class="cert-thumb">DBMS — Part 2</div>
-        <h3>Database Management System — Part 2</h3>
-        <div class="cert-meta">Issued: June 26, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/DBMS-Part2.pdf" target="_blank" rel="noopener">Open file</a>
-        </div>
-      </article>
-
-      <!-- DBMS Part 1 -->
-      <article class="cert-card" data-src="assets/certs/DBMS-Part1.pdf" data-title="Database Management System — Part 1">
-        <div class="cert-thumb">DBMS — Part 1</div>
-        <h3>Database Management System — Part 1</h3>
-        <div class="cert-meta">Issued: June 26, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/DBMS-Part1.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>Database Management System — Part 2</h3>
+          <div class="cert-meta">Issued: June 26, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/DBMS-Part2.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
       <!-- DBMS Science Graduates -->
       <article class="cert-card" data-src="assets/certs/DBMS-Science-Graduates.pdf" data-title="DBMS — Science Graduates">
         <div class="cert-thumb">DBMS • Science</div>
-        <h3>Database Management System — Science Graduates</h3>
-        <div class="cert-meta">Issued: Aug 1, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/DBMS-Science-Graduates.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>Database Management System — Science Graduates</h3>
+          <div class="cert-meta">Issued: Aug 1, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/DBMS-Science-Graduates.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
       <!-- NoSQL -->
       <article class="cert-card" data-src="assets/certs/NoSQL.pdf" data-title="Introduction to NoSQL databases">
         <div class="cert-thumb">NoSQL</div>
-        <h3>Introduction to NoSQL Databases</h3>
-        <div class="cert-meta">Issued: June 27, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/NoSQL.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>Introduction to NoSQL Databases</h3>
+          <div class="cert-meta">Issued: June 27, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/NoSQL.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
       <!-- Programming Java -->
       <article class="cert-card" data-src="assets/certs/Programming-Java.pdf" data-title="Programming using Java">
         <div class="cert-thumb">Java</div>
-        <h3>Programming Using Java</h3>
-        <div class="cert-meta">Issued: June 27, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/Programming-Java.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>Programming Using Java</h3>
+          <div class="cert-meta">Issued: June 27, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/Programming-Java.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
       <!-- Software Engineering -->
       <article class="cert-card" data-src="assets/certs/Software-Engineering-Agile.pdf" data-title="Software Engineering & Agile software development">
         <div class="cert-thumb">Software Engg</div>
-        <h3>Software Engineering & Agile Software Development</h3>
-        <div class="cert-meta">Issued: June 27, 2025</div>
-        <div class="cert-actions">
-          <button class="btn view" data-action="view">View</button>
-          <a class="btn" href="assets/certs/Software-Engineering-Agile.pdf" target="_blank" rel="noopener">Open file</a>
+        <div class="cert-content">
+          <h3>Software Engineering & Agile Software Development</h3>
+          <div class="cert-meta">Issued: June 27, 2025</div>
+          <div class="cert-actions">
+            <button class="btn view" data-action="view">View</button>
+            <a class="btn outline" href="assets/certs/Software-Engineering-Agile.pdf" target="_blank" rel="noopener">Open file</a>
+          </div>
         </div>
       </article>
 
@@ -145,9 +277,9 @@
     <div class="modal-inner" role="document">
       <div class="modal-toolbar">
         <div class="meta" id="cert-title">Certificate</div>
-        <div>
-          <button class="modal-close" id="modal-open-new" title="Open in new tab">Open in new tab</button>
-          <button class="modal-close" id="modal-close" aria-label="Close viewer">✕</button>
+        <div style="display: flex; gap: 8px;">
+          <button class="modal-close" id="modal-open-new" title="Open in new tab">Open in New Tab</button>
+          <button class="modal-close" id="modal-close" aria-label="Close viewer">Close</button>
         </div>
       </div>
       <div class="modal-body" id="modal-body">
@@ -221,5 +353,7 @@
     document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') closeViewer(); });
   })();
   </script>
+  
+  <script src="assets/script.js"></script>
 </body>
 </html>
